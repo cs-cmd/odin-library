@@ -1,6 +1,6 @@
 // books constructor
-export function Book(name, author, pageCount, counter) {
-    this.name = name;
+export function Book(title, author, pageCount, counter) {
+    this.title = title;
     this.author = author;
     this.pageCount = pageCount;
     this.counter = counter;

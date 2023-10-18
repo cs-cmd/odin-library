@@ -1,7 +1,7 @@
 @import url('./styles/fonts.css');
 
 :root {
-    --card-height: 200px;
+    --card-height: 300px;
     --card-gap: 10px;
     --cards-per-line: 3;
 }
@@ -36,6 +36,8 @@ html {
     border: 1px solid #000;
     display: grid;
     grid-template-rows: 1fr .5fr .5fr;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 .is-read {
@@ -44,4 +46,8 @@ html {
 
 .is-unread {
     background-color: red;
+}
+
+.test-card {
+    visibility: hidden;
 }
