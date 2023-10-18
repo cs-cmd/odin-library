@@ -1,13 +1,5 @@
-// books constructor
-function Book(name, author, pageCount) {
-    this.name = name;
-    this.author = author;
-    this.pageCount = pageCount;
-    this.counter = counter;
-    this.info = function() {
-        return `${this.name}, by ${this.author}; ${this.pageCount} page(s)`;
-    }
-}
+import { Book } from './book.js';
+import { toggleReadStatus } from './button-funcs.js';
 
 // counter to uniquely ID books in array
 let counter = 0;
@@ -40,12 +32,6 @@ function removeFromList(booksDiv, bookCard) {
     // remove book index from array and delete from div
     books.splice(bookIndex, 1);
     booksDiv.removeChild(bookCard);
-}
-
-// toggles both, keeping one inactive and one active
-function toggleReadStatus(bookEntry) {
-    bookEntry.classList.toggle('is-read');
-    bookEntry.classList.toggle('is-unread');
 }
 
 // update book list

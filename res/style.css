@@ -1,9 +1,14 @@
+@import url('./styles/fonts.css');
+
 :root {
     --card-height: 200px;
     --card-gap: 10px;
     --cards-per-line: 3;
 }
 
+html {
+    font-family: 'Noto', 'Helvetica', sans-serif;
+}
 .main-content {
     display: flex;
     flex-direction: column;
