@@ -7,18 +7,29 @@
     <link rel="stylesheet" href="./res/style.css">
 </head>
 <body>
-    <label for="book_name">Book name</label>
-    <input id="book_name" name="book_name" type="text" placeholder="Book name...">
+    <form class="book-form" id="book-form">
+        <label for="book_name">Book name</label>
+        <input required id="book_name" name="book_name" type="text" placeholder="Book name...">
 
-    <label for="book_author">Book author</label>
-    <input id="book_author" name="book_author" type="text" placeholder="Book author...">
+        <label for="book_author">Book author</label>
+        <input required id="book_author" name="book_author" type="text" placeholder="Book author...">
 
-    <label for="page_count">Page count</label>
-    <input id="page_count" name="page_count" type="number" placeholder="0">
+        <label for="page_count">Page count</label>
+        <input required id="page_count" name="page_count" type="number" placeholder="0">
 
-    <button class="submit-button" type="button">Enter</button>
+        <button class="submit-button" type="submit">Enter</button>
+    </form>
+
     <div class="book-list">
 
+    </div>
+
+    <div class="card">
+        <h1 class="title">help me</h1>
+        <h3 class="author">By: me</h3>
+        <p class="page-count">Page count: 420</p>
+        <button class="remove-book-button">Remove</button>
+        <div class="read-indicator"></div>
     </div>
 
     <script src="./src/add-book.js"></script>
