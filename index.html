@@ -7,29 +7,33 @@
     <link rel="stylesheet" href="./res/style.css">
 </head>
 <body>
-    <form class="book-form" id="book-form">
-        <label for="book_name">Book name</label>
-        <input required id="book_name" name="book_name" type="text" placeholder="Book name...">
+    <main class="main-content">
+        <form class="book-form" id="book-form">
+            <label for="book_name">Book name</label>
+            <input required id="book-name" name="book_name" type="text" placeholder="Book name...">
 
-        <label for="book_author">Book author</label>
-        <input required id="book_author" name="book_author" type="text" placeholder="Book author...">
+            <label for="book_author">Book author</label>
+            <input required id="book-author" name="book_author" type="text" placeholder="Book author...">
 
-        <label for="page_count">Page count</label>
-        <input required id="page_count" name="page_count" type="number" placeholder="0">
+            <label for="page_count">Page count</label>
+            <input required id="page-count" name="page_count" type="number" placeholder="0">
 
-        <button class="submit-button" type="submit">Enter</button>
-    </form>
+            <label for="has_read">Read?</label>
+            <input type="checkbox" id="has-read-checkbox">
+            <button class="submit-button" type="submit">Enter</button>
+        </form>
 
-    <div class="book-list">
+        <div class="book-list">
 
-    </div>
+        </div>
+    </main>
 
     <div class="card">
         <h1 class="title">help me</h1>
         <h3 class="author">By: me</h3>
         <p class="page-count">Page count: 420</p>
         <button class="remove-book-button">Remove</button>
-        <div class="read-indicator"></div>
+        <button class="toggle-read-button">Toggle Read</button>
     </div>
 
     <script src="./src/add-book.js"></script>

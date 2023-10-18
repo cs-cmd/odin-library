@@ -15,12 +15,6 @@ let counter = 0;
 // books array
 let books = [];
 
-// pushes book into list, updates book list with last insert index
-function addBookToList(book) {
-    let lastInsert = books.push(book) - 1;
-    updateBookList(book, lastInsert);
-}
-
 // remove book from list and HTML element
 function removeFromList(booksDiv, bookCard) {
     // counter of book and index of book in list
@@ -48,13 +42,24 @@ function removeFromList(booksDiv, bookCard) {
     booksDiv.removeChild(bookCard);
 }
 
+// toggles both, keeping one inactive and one active
+function toggleReadStatus(bookEntry) {
+    bookEntry.classList.toggle('is-read');
+    bookEntry.classList.toggle('is-unread');
+}
+
 // update book list
-function updateBookList(book) {
+function addBook(book, isRead) {
+    // insert book into array
+    books.push(book) - 1;
+
     const bookListElement = document.querySelector('.book-list');
     
     
     let bookEntry = document.createElement('div');
-    bookEntry.classList.add('card');
+    bookEntry.classList.add('card', 'is-read', 'is-unread');
+    bookEntry.classList.toggle('is-read');
+    bookEntry.classList.toggle('is-unread');
 
     // create vars for book name, author, pages, and button to remove
     let bookTitleEle = document.createElement('h1');
@@ -72,8 +77,21 @@ function updateBookList(book) {
         removeFromList(bookListElement, e.target.parentElement);
     });
 
+    if(isRead) {
+        bookEntry.classList.toggle('is-read');
+    }
+    else {
+        bookEntry.classList.toggle('is-unread');
+    }
+
+    let toggleReadButton = document.createElement('button');
+    toggleReadButton.innerText = 'Toggle read status';
+    toggleReadButton.addEventListener('click', function(e) {
+        toggleReadStatus(e.target.parentElement)
+    });
+
     // append all to book card, add book card to div
-    bookEntry.append(bookTitleEle, bookAuthorEle, bookPageCountEle, bookRemove);
+    bookEntry.append(bookTitleEle, bookAuthorEle, bookPageCountEle, bookRemove, toggleReadButton);
     bookEntry.setAttribute('counter', book.counter);
     bookListElement.appendChild(bookEntry);
 }
@@ -85,17 +103,17 @@ function validateInput(book, author, pages) {
 }
 
 function postBook() {
-    let name = document.getElementById('book_name').value;
-    let author = document.getElementById('book_author').value;
-    let pages = parseInt(document.getElementById('page_count').value);
-
+    let name = document.getElementById('book-name').value;
+    let author = document.getElementById('book-author').value;
+    let pages = parseInt(document.getElementById('page-count').value);
+    let isRead = document.getElementById('has-read-checkbox').checked;
     if (!validateInput(name, author, pages)) {
         return;
     }
 
     let b = new Book(name, author, pages, ++counter);
 
-    addBookToList(b);
+    addBook(b, isRead);
 }
 
 document.querySelector('.submit-button').addEventListener('click', function(e) {

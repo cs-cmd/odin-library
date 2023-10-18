@@ -1,26 +1,42 @@
 :root {
     --card-height: 200px;
+    --card-gap: 10px;
+    --cards-per-line: 3;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .book-list {
+    --grid-width: calc((var(--card-height) * var(--cards-per-line)) + ((var(--cards-per-line)-1) * var(--card-gap))); 
     margin-top: 30px;
-    height: 300px;
-    width: 700px;
+    width: var(--grid-width);
     overflow: scroll;
-    border: 1px solid #000;
     display: grid;
-    grid-template-columns: repeat(auto-fill, var(--card-height));
-    gap: 10px;
-
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--card-gap);
 }
 
 .card * {
     margin: 0px;
     padding: 0px;
 }
+
 .card {
     width: var(--card-height);
     height: var(--card-height);
     border: 1px solid #000;
     display: grid;
     grid-template-rows: 1fr .5fr .5fr;
+}
+
+.is-read {
+    background-color: green;
+}
+
+.is-unread {
+    background-color: red;
 }
