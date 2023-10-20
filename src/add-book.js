@@ -16,15 +16,15 @@ function createBookCard(book, pageListDiv) {
 
     // create vars for book name, author, pages, and button to remove
     let bookTitleEle = document.createElement('h1');
-    bookTitleEle.innerText = `"${book.title}"`;
+    bookTitleEle.innerText = `"${book.getName()}"`;
 
     let bookAuthorEle = document.createElement('h3');
-    bookAuthorEle.innerText = book.author;
+    bookAuthorEle.innerText = book.getAuthor();
 
     let bookPageCountEle = document.createElement('p');
-    bookPageCountEle.innerText = book.pageCount;
+    bookPageCountEle.innerText = book.getPages();
 
-    if(book.read) {
+    if(book.isRead()) {
         bookEntry.classList.toggle('is-read');
     }
     else {
@@ -34,7 +34,8 @@ function createBookCard(book, pageListDiv) {
     let toggleReadButton = document.createElement('button');
     toggleReadButton.innerText = 'Toggle read status';
     toggleReadButton.addEventListener('click', function(e) {
-        toggleReadStatus(e.target.parentElement)
+        toggleReadStatus(e.target.parentElement);
+        book.toggleReadStatus();
     });
 
 
@@ -47,7 +48,7 @@ function createBookCard(book, pageListDiv) {
 
     // append all to book card, add book card to div
     bookEntry.append(bookTitleEle, bookAuthorEle, bookPageCountEle, bookRemove, toggleReadButton);
-    bookEntry.setAttribute('counter', book.counter);
+    bookEntry.setAttribute('counter', book.getCounter());
 
     return bookEntry;
 }

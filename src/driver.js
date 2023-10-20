@@ -18,11 +18,10 @@ document.querySelector('.submit-button').addEventListener('click', function(e) {
     let pages = parseInt(document.getElementById('page-count').value);
     let isRead = document.getElementById('is-read-checkbox').checked;
     
-    let b = new Book(bookName, author, pages, ++counter, isRead);
+    let b = new Book(bookName, author, pages, isRead, ++counter);
 
     if(postBook(b)) {
         books.push(b);
-
         addBookToPage(bookListElement, b);        
     }
     else {
@@ -34,8 +33,9 @@ document.querySelector('.submit-button').addEventListener('click', function(e) {
 export function removeBookFromArray(bookCounter) {
     let bookIndex = -1
     for(let i = 0; i < books.length; ++i) {
-        if(books.counter == bookCounter) {
+        if(books[i].getCounter() == bookCounter) {
             bookIndex = i;
+            break;
         }
     }
 

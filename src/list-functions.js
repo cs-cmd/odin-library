@@ -9,9 +9,9 @@ export function removeFromList(booksDiv, bookCard) {
 }
 
 function validateInput(book) {
-    return (book.title.length > 0 &&
-            book.author.length > 0 &&
-            !isNaN(book.pageCount));
+    return (book.getName().length > 0 &&
+            book.getAuthor().length > 0 &&
+            !isNaN(book.getPages()));
 }
 
 export function postBook(book) {

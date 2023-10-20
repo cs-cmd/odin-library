@@ -1,18 +1,20 @@
-class Book {
-    // default constructor
-    constructor() {
-        this.name = '';
-        this.author = '';
-        this.pages = 0;
-        this.readStatus = false;
-    }
+export class Book {
+    // // default constructor
+    // constructor() {
+    //     this.name = '';
+    //     this.author = '';
+    //     this.pages = 0;
+    //     this.readStatus = false;
+    //     this.counter = 0;
+    // }
 
     // param constructor
-    constructor(name, author, pages, readStatus) {
+    constructor(name, author, pages, readStatus, counter) {
         this.name = name;
         this.author = author;
         this.pages = pages;
         this.readStatus = readStatus;
+        this.counter = counter;
     }
 
     /*************** GETTERS/SETTERS ***************/
@@ -37,13 +39,18 @@ class Book {
         this.pages = pageCount;
     }
 
-    getReadStatus() {
+    isRead() {
         return this.readStatus;
     }
     toggleReadStatus() {
-        this.readStatus 
+        this.readStatus = !this.readStatus;
+    }
+
+    // counter is read-only
+    getCounter() {
+        return this.counter;
     }
     /***********************************************/
 
-    
+
 }
