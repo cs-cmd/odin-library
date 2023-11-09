@@ -42,7 +42,7 @@ const UI = (() => {
         bookPageCountEle.innerText = book.pageCount;
 
         // if is read, make background green, otherwise red
-        if(book.read) {
+        if(isRead) {
             bookEntry.classList.toggle('is-read');
         }
         else {
