@@ -10,26 +10,24 @@ const UI = (() => {
     const pagesField = document.getElementById('page-count');
     const isReadField = document.getElementById('is-read-checkbox');
 
+    // toggles read status of book page item
     const toggleReadStatus = (bookEntry) => {
         bookEntry.classList.toggle('is-read');
-        bookEntry.classList.toggle('is-unread');
     }
 
+    // creates a page item for the book in the list
     const createBookPageItem = () => {
         let bookName = nameField.value;
         let author = authorField.value;
         let pages = parseInt(pagesField.value);
         let isRead = isReadField.checked;
 
-        // do additional validation here
-
+        // add book based on params and return new object
         const book = library.addBook(bookName, author, pages, isRead);
 
         // create div
         let bookEntry = document.createElement('div');
-        bookEntry.classList.add('card', 'is-read', 'is-unread');
-        bookEntry.classList.toggle('is-read');
-        bookEntry.classList.toggle('is-unread');
+        bookEntry.classList.add('card');
 
         // create vars for book name, author, pages, and button to remove
         let bookTitleEle = document.createElement('h1');
@@ -45,9 +43,6 @@ const UI = (() => {
         if(isRead) {
             bookEntry.classList.toggle('is-read');
         }
-        else {
-            bookEntry.classList.toggle('is-unread');
-        }
 
         // toggles read status
         let toggleReadButton = document.createElement('button');
@@ -56,7 +51,7 @@ const UI = (() => {
             toggleReadStatus(bookEntry);
         });
 
-
+        // add button to remove book from list and array
         let bookRemove = document.createElement('button');
         bookRemove.innerText = 'Remove';
         bookRemove.addEventListener('click', function(e) {

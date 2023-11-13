@@ -42,14 +42,11 @@ html {
     grid-template-rows: 1fr .5fr .5fr;
     border-radius: 5px;
     padding: 5px;
+    background-color: red;
 }
 
 .is-read {
     background-color: green;
-}
-
-.is-unread {
-    background-color: red;
 }
 
 .test-card {
